@@ -1,0 +1,30 @@
+- hosts: all
+  tasks:
+          - name: Install Docker SDK 
+            command: "pip3 install docker-py"
+
+          - name: Create a directory if it does not exist
+            file:
+                    path: /WebPages
+                    state: directory
+
+          - name: copying webpage to managed node directory
+            copy:
+                       src: index.html
+                       dest: /WebPages/ 
+
+          - name: Pull An Image
+            docker_image:
+                    name: httpd
+                    source: pull 
+
+          - name: Launch An Container
+            docker_container:
+                    name: WebServer
+                    state: started
+                    image: httpd
+                    volumes:
+                            - /WebPages:/usr/local/apache2/htdocs/
+                    ports :
+                            - "8080:80"
+

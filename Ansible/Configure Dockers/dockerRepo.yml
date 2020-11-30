@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+        - name: Downlaod Docker offical Repo
+          get_url:
+                  url:  https://download.docker.com/linux/centos/docker-ce.repo
+                  dest: /etc/yum.repos.d/

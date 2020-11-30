@@ -1,0 +1,21 @@
+- hosts : all
+  tasks :
+          - name : Install Docker
+            dnf:
+                    name : docker-ce
+                    state : latest
+          
+          - name : Enable Docker Services
+            service:
+                    name : docker
+                    enabled : yes
+
+          - name : Start Docker Services
+            service:
+                    name : docker
+                    state : started
+
+
+
+
+             
