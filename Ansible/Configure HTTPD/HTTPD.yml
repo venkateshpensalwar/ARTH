@@ -3,10 +3,6 @@
           - Port: 81
           - Document_root: /var/www/html/
   tasks:
-          - name: Install HTTPD
-            yum:
-                    name: httpd
-                    state: present
                
           - name: Changing Web server Configuration
             template:
@@ -14,12 +10,6 @@
                     src: "Web.conf"
             notify:
                     - Restart Apache
-  handlers:
-
-          - name: Restart Apache 
-            service:
-                    name: httpd
-                    state: restarted
 
                             
           - name: Change Firewalld Rules  
@@ -28,3 +18,9 @@
                     state: enabled
                     permanent: yes
                     immediate: yes
+  handlers:
+
+          - name: Restart Apache 
+            service:
+                    name: httpd
+                    state: restarted
