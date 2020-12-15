@@ -1,0 +1,30 @@
+- hosts: all
+  vars:
+          - Port: 81
+          - Document_root: /var/www/html/
+  tasks:
+          - name: Install HTTPD
+            yum:
+                    name: httpd
+                    state: present
+               
+          - name: Changing Web server Configuration
+            template:
+                    dest: "/etc/httpd/conf.d/"
+                    src: "Web.conf"
+            notify:
+                    - Restart Apache
+  handlers:
+
+          - name: Restart Apache 
+            service:
+                    name: httpd
+                    state: restarted
+
+                            
+          - name: Change Firewalld Rules  
+            firewalld:
+                    port: "{{ Port }}/tcp"
+                    state: enabled
+                    permanent: yes
+                    immediate: yes
