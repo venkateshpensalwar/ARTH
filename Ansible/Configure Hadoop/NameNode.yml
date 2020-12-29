@@ -1,3 +1,12 @@
-- hosts: all
+### Configuration plan for namenode
+
+# step 1 : Connect to managed node
+# step 2 : download jdk and hadoop
+# step 3 : update core-site.xml and hdfs-site.xml
+# step 4 : install jdk and hadoop
+# step 5 : Format Namenode
+# step 6 : start services
+
+- hosts: MasterNode
  
   
