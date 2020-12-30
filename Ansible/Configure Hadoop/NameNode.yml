@@ -1,12 +1,38 @@
-### Configuration plan for namenode
+### Configuration plan for MasterNode
 
 # step 1 : Connect to managed node
 # step 2 : download jdk and hadoop
-# step 3 : update core-site.xml and hdfs-site.xml
-# step 4 : install jdk and hadoop
+# step 3 : install jdk and hadoop
+# step 4 : update core-site.xml and hdfs-site.xml
 # step 5 : Format Namenode
 # step 6 : start services
 
+##########################################
+
 - hosts: MasterNode
+  tasks: 
+        - name: Downloading jdk
+          get_url:
+                url: https://github.com/frekele/oracle-java/releases/download/8u171-b11/jdk-8u171-linux-x64.rpm
+                dest: /root/
+                register: jdk 
+
+        - name: Downloading Hadoop
+          get_url:
+                url: https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm
+                dest: /root/
+                register: Hadoop
+                
+        - name: Getting JDK Status
+          debug:
+              var: jdk
+        
+        - name: Getting Hadoop Status
+          debug:
+              var: Hadoop
+
+
+    
+  
  
   
