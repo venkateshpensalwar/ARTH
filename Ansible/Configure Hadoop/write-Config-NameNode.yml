@@ -1,0 +1,32 @@
+- hosts: MasterNode
+  tasks:
+       - name: ansible create directory 
+         file:
+            path: /master
+            state: directory
+
+       - name: Adding Configuration in hdfs-site.xml
+         blockinfile:
+               path: /etc/hadoop/hdfs-site.xml
+               insertafter: '<configuration>'
+               block: |
+                   <property>
+                   <name>dfs.name.dir</name>
+                   <value>/master</value>
+                   </property>
+                   
+
+                   
+              
+       - name: Adding Configuration in core-site.xml
+         blockinfile:
+               path: /etc/hadoop/core-site.xml
+               insertafter: '<configuration>'
+               block: |
+                   <property>
+                   <name>fs.default.name</name>
+                   <value>hdfs://192.168.0.112:9001</value>
+                   </property>
+
+                   
+                

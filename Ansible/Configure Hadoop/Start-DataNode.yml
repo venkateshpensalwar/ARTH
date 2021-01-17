@@ -1,0 +1,20 @@
+- hosts: SlaveNode
+  tasks:
+        - name : Run SlaveNode
+          shell:
+               cmd: hadoop-daemon.sh start datanode
+          register: msg
+
+        - name: Check status
+          shell:
+               cmd: jps
+          register: status
+
+        - name: Getting initlization msg
+          debug:
+              var: msg
+
+        - name: Getting MasterNode Status
+          debug:
+              var: status
+

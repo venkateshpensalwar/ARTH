@@ -1,0 +1,20 @@
+- hosts: MasterNode,SlaveNode
+  tasks:
+        - name: install JDK
+          shell:
+                cmd: rpm -i jdk-8u171-linux-x64.rpm  
+          register: msg
+
+        - name: install Hadoop
+          shell:
+                cmd: rpm -i hadoop-1.2.1-1.x86_64.rpm --force 
+          register: msg2
+           
+        - name: Getting JDK Status
+          debug:
+              var: msg
+        
+        - name: Getting Hadoop Status
+          debug:
+              var: msg2
+

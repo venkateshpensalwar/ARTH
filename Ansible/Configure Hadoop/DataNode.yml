@@ -1,15 +1,15 @@
-### Configuration plan for MasterNode
+### Configuration plan for DataNode
 
 # step 1 : Connect to managed node
 # step 2 : download jdk and hadoop
 # step 3 : install jdk and hadoop
 # step 4 : update core-site.xml and hdfs-site.xml
-# step 5 : Format Namenode
+# step 5 : Format DataNode
 # step 6 : start services
 
 ##########################################
 
-- hosts: MasterNode
+- hosts: SlaveNode
   tasks: 
         - name: Downloading jdk
           get_url:
