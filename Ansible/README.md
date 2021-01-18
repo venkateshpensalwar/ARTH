@@ -8,3 +8,4 @@
  - Docker
  - Hadoop
  - HTTPD(Apache web server)
+ - HAPROXY
