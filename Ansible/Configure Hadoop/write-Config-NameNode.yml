@@ -25,7 +25,7 @@
                block: |
                    <property>
                    <name>fs.default.name</name>
-                   <value>hdfs://192.168.0.112:9001</value>
+                   <value>hdfs://{{groups['MasterNode'][0]}}:9001</value>
                    </property>
 
                    

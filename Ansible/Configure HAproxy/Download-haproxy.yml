@@ -1,4 +1,5 @@
-###### Configuration plan for HAPROXY
+###### Configuration plan for HAPROXY ##################
+
 # 1. check connectivity with managed node
 # 2. download HAPROXY on one of the managed node
 # 3. install HAPROXY
