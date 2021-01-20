@@ -4,6 +4,11 @@
 # 2. download HAPROXY on one of the managed node
 # 3. install HAPROXY
 # 4. Configure HAPROXY
-# 5. start the HAPROXY services
+     # 4.1.  create HAPROXY config file using jinja language
+# 5. install Apache web server on Backend nodes 
+    # 5.0  install php on backend server
+    # 5.1. put php files in document root
+    # 5.2. start web server services 
+# 6. start the HAPROXY services
 
 #########################################################
