@@ -9,3 +9,4 @@
  - Hadoop
  - HTTPD(Apache web server)
  - HAPROXY
+ - HAPROXY On AWS
