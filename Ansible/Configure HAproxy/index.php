@@ -2,7 +2,7 @@
 
 
 echo "<pre>";
-echo `ifconfig`;
+echo `ifconfig -i enp0s3`;
 echo "</pre>";
 
 
