@@ -6,8 +6,12 @@
          template:
                  src: /root/workspace/haproxy.cfg
                  dest: /etc/haproxy/haproxy.cfg
-         register: msg
+         notify:
+                 - Restart haproxy
 
-       - name: Getting haproxy status
-         debug:
-              var: msg
+  handlers:
+       - name: Restart haproxy 
+         service:
+               name: haproxy
+               state: restarted
+       

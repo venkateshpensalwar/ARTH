@@ -1,0 +1,44 @@
+
+### step 1:
+- hosts: WebServer
+  tasks:
+      - name: Download Web Server and PHP
+        dnf:
+            name:
+               - httpd
+               - php
+            state: latest
+        register: Download 
+
+### step 2:
+      - name: copy index.php to /var/www/html/
+        copy:
+           src: index.php
+           dest: /var/www/html/
+        register: copy
+
+### step 3:
+      - name: Add Firewall Rules for web server
+        firewalld:
+                    port: "80/tcp"
+                    state: enabled
+                    permanent: yes
+                    immediate: yes
+        register: Firewall
+
+### step 4:
+      - name: Start the httpd Services
+        service:
+               name: httpd
+               state: started
+        register: service
+
+      - name: Getting status of PHP and Web servers
+        debug:
+              var: "{{ item }}"
+        with_items:
+          - Download
+          - copy
+          - Firewall
+          - service
+
