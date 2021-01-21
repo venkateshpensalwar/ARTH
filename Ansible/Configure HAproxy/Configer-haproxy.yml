@@ -1,0 +1,13 @@
+- hosts: HAPROXY
+  vars_files:
+          - variables.yml
+  tasks:
+       - name: copy configuration file in haproxy/
+         template:
+                 src: /root/workspace/haproxy.cfg
+                 dest: /etc/haproxy/haproxy.cfg
+         register: msg
+
+       - name: Getting haproxy status
+         debug:
+              var: msg

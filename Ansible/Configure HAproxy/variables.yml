@@ -1,4 +1,4 @@
 #### variables used in HAPROXY configuration file
 
-LoadBlancer_port: 8080
-WebServer_port: 80
+- LoadBlancer_port: 8080
+- WebServer_port: 80
