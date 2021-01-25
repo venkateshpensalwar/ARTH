@@ -14,8 +14,8 @@ In the vars/main.yml
 
 ### vars file for apache
 
-web_port: port number
-package: 
+- web_port: port number
+- package: 
      - package1
      - package2
 
