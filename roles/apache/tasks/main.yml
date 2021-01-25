@@ -1,0 +1,28 @@
+---
+# tasks file for apache 
+
+ - name: Installing Apache web server
+   dnf:
+           name: "{{ item }}"
+           state: latest
+   with_items: "{{ package }}"
+ 
+ - name: Copy files to web server
+   template:
+           src: index.php.j2
+           dest: /var/www/html/index.php
+
+ - name: Add Rules in Firewalls of web servers
+   firewalld:
+            port: "{{ web_port }}/tcp"
+            permanent: yes
+            state: enabled
+            immediate: yes
+
+ - name: Start Web server on boot
+   service:
+           name: httpd
+           state: started
+           enabled: yes
+
+
