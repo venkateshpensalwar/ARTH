@@ -10,3 +10,6 @@
  - HTTPD(Apache web server)
  - HAPROXY
  - HAPROXY On AWS
+ - roles
+    - apache
+    - HAPROXY

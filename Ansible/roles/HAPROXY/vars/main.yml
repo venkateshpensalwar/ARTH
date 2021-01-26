@@ -1,6 +1,8 @@
 ---
 # vars file for HAPROXY
 
+
+app: haproxy
 LoadBlancer_port: 8080
 WebServer_port: 80
 
