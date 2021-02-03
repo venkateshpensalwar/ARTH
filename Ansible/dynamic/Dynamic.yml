@@ -1,6 +1,7 @@
 ####### configuration plan for dynamic variable files according to OS name #########
-## 1. create two variable files named OS_name.yml
-## 2. install apache web server
-## 3. package name take from above variable files dynamically according to OS name
-## 4. start the services
+## 1. init roles
+## 2. create two variable files named OS_name.yml
+## 3. install apache web server
+## 4. package name take from above variable files dynamically according to OS name
+## 5. start the services
 
