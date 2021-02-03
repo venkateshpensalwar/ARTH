@@ -5,3 +5,6 @@
 ## 4. package name take from above variable files dynamically according to OS name
 ## 5. start the services
 
+- hosts: all
+  roles:
+       - dynamic-var-files
