@@ -24,7 +24,7 @@
 
          - name: Start Web server service
            service:
-                  name: httpd
+                  name: "{{ package }}"
                   state: started
                   enabled: yes
              
