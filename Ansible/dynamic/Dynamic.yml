@@ -6,5 +6,25 @@
 ## 5. start the services
 
 - hosts: all
-  roles:
-       - dynamic-var-files
+  vars_files:
+         - "{{ansible_facts['distribution']}}.yml"
+
+  tasks:
+         - name: install apache webserver
+           yum:
+                name: "{{ package }}"
+                state: latest
+
+         - name: Add Rules in Firewalls of web servers
+           ansible.posix.firewalld:
+                               port: "{{ web_port }}/tcp"
+                               permanent: yes
+                               state: enabled
+                               immediate: yes     
+
+         - name: Start Web server service
+           service:
+                  name: httpd
+                  state: started
+                  enabled: yes
+             

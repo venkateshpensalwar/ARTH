@@ -1,0 +1,5 @@
+# RedHat variable file
+
+
+package: httpd
+web_port: 80
