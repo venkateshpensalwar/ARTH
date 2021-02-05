@@ -25,6 +25,7 @@ using the variable names we can Configure our target node.
    pacakge: httpd or apache2
    web_port: 80
    ```
+   <br></br>
 4. Run playbook using following command.
    
    ```
