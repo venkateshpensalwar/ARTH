@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+          - name: install web server on container
+            yum:
+                 name: httpd
+                 state: latest
+
+          - name: copy content in web server
+            copy:
+               src: index.html
+               dest: /var/www/html/index.html       
+          
+          - name: start service
+            command: /usr/sbin/httpd

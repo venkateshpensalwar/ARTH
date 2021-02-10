@@ -1,3 +1,44 @@
-### Configuration plan ####
-# step 1. retrive the container names
-# step 2. Update Inventory File with Container IP
+- hosts: localhost
+  vars_prompt:
+          - name: container_name
+            prompt: Enter Running Container Name?
+            private: no
+
+  tasks:
+        - name: Set Selinux premissive
+          ansible.posix.selinux:
+                             policy: targeted
+                             state: permissive
+        
+        - name: Start docker service
+          service:
+                  name: docker
+                  state: started
+
+        - name: pull an image
+          docker_image:
+                    name: venkatesh14/sshimage
+                    source: pull
+                    
+        - name: launch container
+          docker_container:
+                    name: "{{ container_name }}"
+                    image: venkatesh14/sshimage
+                    state: started
+
+
+        - name: Retrive ip of container
+          docker_container_info:
+                            name: "{{ container_name }}"
+          register: result
+
+        - name: Retrive Ip of given container
+          debug:
+               var: result['container']['NetworkSettings']['IPAddress']
+
+        - name: Update inventory with DockerIP
+          template:
+                  src: DockerIP.txt.j2
+                  dest: /home/playbooks/ansible/DockerTask/DockerIP.txt
+
+                       
