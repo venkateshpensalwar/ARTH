@@ -36,4 +36,4 @@
 
 ##  Read My Blog On [Medium](https://venkateshpensalwar.medium.com/) to Get More Insight :
 
-<b><em>Comming Soon</em></b>
+https://venkateshpensalwar.medium.com/retrieve-container-ip-and-update-ansible-inventory-using-ansible-a7eb8b76f8c0
