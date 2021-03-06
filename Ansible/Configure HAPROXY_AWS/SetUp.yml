@@ -1,0 +1,9 @@
+- hosts: tag_Name_HAProxyServer
+  roles:
+        -  HAPROXY
+            
+- hosts: tag_Name_WebServer
+  roles:
+          - apache
+
+

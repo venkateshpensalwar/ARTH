@@ -1,0 +1,29 @@
+- hosts: localhost
+  tasks:
+          - name: Provision 2 EC2 instance For Web Server
+            amazon.aws.ec2:
+                        region: ap-south-1
+                        key_name: newKey
+                        instance_type: t2.micro
+                        image: ami-0a9d27a9f4f5c0efc
+                        wait: yes
+                        group: WebServer-sg
+                        count: 2
+                        vpc_subnet_id: subnet-070fdbef63646c886
+                        assign_public_ip: yes
+                        instance_tags:
+                                  Name: WebServer
+           
+          - name: Provision 1 EC2 instance For HAProxy
+            amazon.aws.ec2:
+                        region: ap-south-1
+                        key_name: newKey
+                        instance_type: t2.micro
+                        image: ami-0a9d27a9f4f5c0efc
+                        wait: yes
+                        group: HAProxy-sg
+                        count: 1
+                        vpc_subnet_id: subnet-070fdbef63646c886
+                        assign_public_ip: yes
+                        instance_tags:
+                                  Name: HAProxyServer
