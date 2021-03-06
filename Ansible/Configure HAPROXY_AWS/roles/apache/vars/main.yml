@@ -1,0 +1,7 @@
+---
+# vars file for apache
+
+web_port: 80
+package: 
+     - httpd
+     - php

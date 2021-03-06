@@ -1,0 +1,26 @@
+       - name: Install Haproxy server
+         yum:
+            name: "{{ app }}"
+            state: latest
+
+       - name: copy configuration file in haproxy
+         template:
+                 src: haproxy.cfg.j2
+                 dest: /etc/haproxy/haproxy.cfg
+         notify:
+                 - Restart haproxy
+
+       - name: Add rules in firewalld for haproxy
+         ansible.posix.firewalld:
+                 port: "{{ LoadBlancer_port }}/tcp"
+                 state: enabled
+                 immediate: yes
+                 permanent: yes
+
+
+       - name: start HAPROXY
+         service:
+                 name: haproxy
+                 state: started
+                 enabled: yes
+

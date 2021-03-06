@@ -1,0 +1,7 @@
+- hosts: WebServer
+  roles:
+          - apache
+
+- hosts: HAPROXY
+  roles:
+          - HAPROXY
