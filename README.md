@@ -6,4 +6,4 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/venkateshpensalwar/ARTH?style=for-the-badge)
 
 - Ansible 
-
+- Cloud
