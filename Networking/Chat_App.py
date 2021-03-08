@@ -20,14 +20,14 @@ ReadySocket = soc.socket(soc.AF_INET,soc.SOCK_DGRAM)
 ReadySocket.bind((SenderIP,SenderPort))
 
 
-os.system('cls')
+os.system('cls')  ## For linux use os.system('clear')
 print(pyfiglet.figlet_format('Walkers Chat'))
 
 
 ## Sending message function
 def SendMsg():
         while True:
-                Message = input('{}:'.format(SenderIP))
+                Message = input()
                 print("\n")
                 if(Message == 'quite' or Message == 'bye' or Message == 'exit'):    
                        Message = 'Your Friend is offline'    
